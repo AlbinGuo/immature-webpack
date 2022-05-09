@@ -10,6 +10,10 @@ module.exports = {
       test: /\.png$/, // 打包的文件是以png结尾的
       use: [{         // 使用loader打包图片
         loader: 'file-loader',
+        options: {
+          // placeholder占位符
+          name: '[name]-[hash].[ext]'
+        }
       }]
     }]
   },
