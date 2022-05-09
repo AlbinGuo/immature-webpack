@@ -7,19 +7,19 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.png$/, // 打包的文件是以png结尾的
+      test: /\.(png|jpg|gif)$/, // 打包的文件是以png结尾的
       use: [{         // 使用loader打包图片
         loader: 'file-loader',
         options: {
-          // placeholder占位符
-          name: '[name]-[hash].[ext]'
+          name: '[name]-[hash].[ext]',    // placeholder占位符
+          outputPath: 'images/',             // 打包后的图片存放的路径
         }
       }]
     }]
   },
   output: {
     filename: 'bundle.js', // 打包后的文件名
-    path: path.resolve(__dirname, 'dist') // 打包后的路径
+    path: path.resolve(__dirname, 'dist') // 打包后的路径：__dirname代表根目录
   }
 
 }
