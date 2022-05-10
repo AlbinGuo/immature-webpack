@@ -19,10 +19,12 @@ module.exports = {
       }
     },
     {
-      test: /\.css$/,           // 打包css文件
+      // test: /\.css$/,           // 打包css文件
+      test: /\.scss$/,           // 打包scss文件
       use: [
-        'style-loader',        // style-loader@0.23.1 [将style挂载到html中]
-        'css-loader'           // css-loader@2.0.0  [解析css文件，合并css文件]
+        'style-loader',         // style-loader@0.23.1 [将style挂载到html中]
+        'css-loader',           // css-loader@2.0.0  [解析css文件，合并css文件]
+        'sass-loader'           // sass-loader [ 对scss文件进行编译 ]
       ]
     }]
   },

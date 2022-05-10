@@ -1,5 +1,5 @@
 import avatar from './avatar.png';
-import './index.css';
+import './test.scss'; // './index.css';
 
 var img = new Image();
 img.src = avatar;
