@@ -5,3 +5,13 @@
 ```npm
 npm install --save-dev csv-loader xml-loader
 ```
+```json
+{
+  test: /\.(csv|tsv)$/i,
+  use: ['csv-loader'],
+},
+{
+  test: /\.xml$/i,
+  use: ['xml-loader'],
+},
+```
