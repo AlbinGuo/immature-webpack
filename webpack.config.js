@@ -8,7 +8,7 @@ module.exports = {
   module: {
     rules: [{
       test: /\.(png|jpg|gif)$/, // 打包的文件是以png结尾的
-      use: [{                   // 使用loader打包图片
+      use: {                   // 使用loader打包图片
         //loader: 'file-loader',  // file-loader是一个内置的loader
         loader: 'url-loader',   // url-loader会把图片转成base64的字符串放入js文件中
         options: {
@@ -16,7 +16,14 @@ module.exports = {
           outputPath: 'images/',          // 打包后的图片存放的路径
           limit: 10240                   // 图片大小小于10k就会转成base64放入bundle.js, 大于10k就会打包到images文件夹下
         }
-      }]
+      }
+    },
+    {
+      test: /\.css$/,           // 打包css文件
+      use: [
+        'style-loader',        // style-loader@0.23.1 [将style挂载到html中]
+        'css-loader'           // css-loader@2.0.0  [解析css文件，合并css文件]
+      ]
     }]
   },
   output: {
