@@ -24,7 +24,8 @@ module.exports = {
       use: [
         'style-loader',         // style-loader@0.23.1 [将style挂载到html中]
         'css-loader',           // css-loader@2.0.0  [解析css文件，合并css文件]
-        'sass-loader'           // sass-loader [ 对scss文件进行编译 ]
+        'sass-loader',           // sass-loader [ 对scss文件进行编译 ]
+        'postcss-loader'        // 自动添加厂商前缀 -webkit- -moz- -o- -ms- -ie- [ npm i autoprefixer ]
       ]
     }]
   },
