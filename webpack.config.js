@@ -58,6 +58,7 @@ module.exports = {
     new CleanWebpackPlugin() // 打包前先清空dist目录
   ],
   output: {
+    publicPath: 'http://cdn.gugouo.com', // 在html中引入CDN的地址
     filename: '[name].js', // 'bundle.js', // 打包后的文件名
     path: path.resolve(__dirname, 'dist') // 打包后的路径：__dirname代表根目录
   }
