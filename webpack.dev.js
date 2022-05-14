@@ -84,6 +84,27 @@ module.exports = {
     usedExports: true, // 开启tree-shaking : 对没有被使用的模块进行删除【development模式下】
     splitChunks: {
       chunks: 'all', // 对所有的模块进行拆分
+      minSize: 30000, // 模块大于30k就拆分
+      maxSize: 0, // 模块大于0k就拆分
+      minChunks: 1, // 当文件被引用1次时，进行拆分
+      maxAsyncRequests: 5, // 拆分前最大的并行请求数
+      maxInitialRequests: 3, // 拆分前最大的初始请求数
+      automaticNameDelimiter: '~', // 拆分后的文件名之间的连接符
+      name: true, // 拆分后的文件名
+      cacheGroups: { // 缓存组
+        vendors: { // 将node_modules中的模块拆分出来
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          filename: 'vendors.js'
+        },
+        default: { // 默认缓存组
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+          filename: 'common.js'
+        }
+      }
+
     }
   },
   output: {
