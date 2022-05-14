@@ -17,6 +17,16 @@ plugins:[
 ...
 ```
 
+```javascript
+if (module.hot) {
+  module.hot.accept('./hmr/number', () => {
+    const num = document.getElementById('number')
+    document.body.removeChild(num)
+    number()
+  })
+}
+```
+
 ### \* WebpackDevServer
 
 ```JavaScript

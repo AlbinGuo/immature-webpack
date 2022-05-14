@@ -26,12 +26,11 @@ import number from './hmr/number'
 
 counter()
 number()
-console.log('----------amodule.hot', module.hot)
+
 if(module.hot) {
   module.hot.accept('./hmr/number', () => {
     const num = document.getElementById('number')
     document.body.removeChild(num)
-    console.log('--------number----------')
     number()
   })
 }
