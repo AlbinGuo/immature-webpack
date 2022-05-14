@@ -9,7 +9,7 @@ optimization: {
     splitChunks: {
       chunks: 'all', // 对所有的模块进行拆分
       minSize: 30000, // 模块大于30k就拆分
-      maxSize: 0, // 模块大于0k就拆分
+      maxSize: 50000, // 模块大于0k就拆分; eg. 如果引入的包大小是1M，则拆分成20个50k的子包
       minChunks: 1, // 当文件被引用1次时，进行拆分
       maxAsyncRequests: 5, // 拆分前最大的并行请求数
       maxInitialRequests: 3, // 拆分前最大的初始请求数
@@ -17,14 +17,14 @@ optimization: {
       name: true, // 拆分后的文件名
       cacheGroups: { // 缓存组
         vendors: { // 将node_modules中的模块拆分出来
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
+          test: /[\\/]node_modules[\\/]/, // 如果是从mode_modules引入的包，则打包到vendors.js中
+          priority: -10,    // 打包优先级
           filename: 'vendors.js'
         },
         default: { // 默认缓存组
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true,
+          reuseExistingChunk: true,   // 如果之前打包过了，不在打包，使用之前已经打包过的文件
           filename: 'common.js'
         }
       }
