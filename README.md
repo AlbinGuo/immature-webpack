@@ -1,10 +1,11 @@
 ### \* source-map
+
 - devtool
-> 1. none : 不开启source-map
-> 2. source-map : 开启source-map，会显示source-map文件
-> 3. inline-source-map : 不显示source-map文件，该文件已经被打包至bundle.js中
-> 4. cheap-moudle-eval-source-map 【适用于mode: product环境】
-> 5. cheap-moudle-source-map 【适用于mode: development环境】
+  > 1. none : 不开启 source-map
+  > 2. source-map : 开启 source-map，会显示 source-map 文件
+  > 3. inline-source-map : 不显示 source-map 文件，该文件已经被打包至 bundle.js 中
+  > 4. cheap-moudle-eval-source-map 【适用于 mode: development 环境】
+  > 5. cheap-moudle-source-map 【适用于 mode: product 环境】
 
 ### \* entry 与 output 配置
 
