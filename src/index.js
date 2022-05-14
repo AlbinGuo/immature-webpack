@@ -7,3 +7,4 @@ img.classList.add('avatar')
 
 var root = document.getElementById('root')
 root.append(img);
+root.innerHTML = '<div class="iconfont icon-shoucang1"></div>'

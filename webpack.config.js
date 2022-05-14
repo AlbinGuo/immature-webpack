@@ -19,11 +19,23 @@ module.exports = {
       }
     },
     {
+      test: /\.(ttf|woff|woff2)$/, // 打包字体文件
+      use: { 
+        loader: 'file-loader',    // 打包至dist目录
+      }
+    },
+    {
       // test: /\.css$/,           // 打包css文件
       test: /\.scss$/,           // 打包scss文件
       use: [
         'style-loader',         // style-loader@0.23.1 [将style挂载到html中]
-        'css-loader',           // css-loader@2.0.0  [解析css文件，合并css文件]
+        {
+          loader: 'css-loader',           // css-loader@2.0.0  [解析css文件，合并css文件]
+          options: {
+            importLoaders: 2,     // 在css-loader之前，先执行下面两个loader【从下到上执行】 - 适用于scss内部嵌入@import时
+            modules: true,         //
+          }
+        },
         'sass-loader',           // sass-loader [ 对scss文件进行编译 ]
         'postcss-loader'        // 自动添加厂商前缀 -webkit- -moz- -o- -ms- -ie- [ npm i autoprefixer ]
       ]
