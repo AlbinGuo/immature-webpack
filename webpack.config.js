@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 module.exports = {
@@ -25,6 +26,12 @@ module.exports = {
       }
     },
     {
+      test: /\.css$/, // 打包字体文件
+      use: { 
+        loader: 'file-loader',    // 打包至dist目录
+      }
+    },
+    {
       // test: /\.css$/,           // 打包css文件
       test: /\.scss$/,           // 打包scss文件
       use: [
@@ -41,6 +48,11 @@ module.exports = {
       ]
     }]
   },
+  plugins:[
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    })
+  ],
   output: {
     filename: 'bundle.js', // 打包后的文件名
     path: path.resolve(__dirname, 'dist') // 打包后的路径：__dirname代表根目录
