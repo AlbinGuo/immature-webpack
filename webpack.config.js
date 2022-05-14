@@ -23,12 +23,10 @@ module.exports = {
       test: /\.(ttf|woff|woff2)$/, // 打包字体文件
       use: { 
         loader: 'file-loader',    // 打包至dist目录
-      }
-    },
-    {
-      test: /\.css$/, // 打包字体文件
-      use: { 
-        loader: 'file-loader',    // 打包至dist目录
+        options: {
+          name: '[name].[ext]',    // placeholder占位符
+          outputPath: './font/',          // 打包后的图片存放的路径
+        }
       }
     },
     {
@@ -39,8 +37,8 @@ module.exports = {
         {
           loader: 'css-loader',           // css-loader@2.0.0  [解析css文件，合并css文件]
           options: {
-            importLoaders: 2,     // 在css-loader之前，先执行下面两个loader【从下到上执行】 - 适用于scss内部嵌入@import时
-            modules: true,         //
+            // importLoaders: 2,     // 在css-loader之前，先执行下面两个loader【从下到上执行】 - 适用于scss内部嵌入@import时
+            // modules: true,         // 
           }
         },
         'sass-loader',           // sass-loader [ 对scss文件进行编译 ]
