@@ -1,5 +1,32 @@
 https://webpack.js.org
 
+### Code Spliting 代码分割
+* 同步代码分割
+```javascript
+ ...
+ optimization: {
+    usedExports: true, 
+    splitChunks: {
+      chunks: 'all', // 对所有的模块进行拆分
+    }
+  },
+  ...
+```
+* 异步代码分割
+```javascript
+function getComponent() {
+  return import('loadsh').then(({default: _}) => {
+    var element = document.createElement('div')
+    element.innerHTML = _.join(['aa', 'bb', 'cc'], '~')
+    return element
+  })
+}
+
+getComponent().then(element => {
+  document.body.appendChild(element)
+})
+```
+
 ### webpack-merge
 
 ```javascript

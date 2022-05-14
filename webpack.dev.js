@@ -82,6 +82,9 @@ module.exports = {
   ],
   optimization: {
     usedExports: true, // 开启tree-shaking : 对没有被使用的模块进行删除【development模式下】
+    splitChunks: {
+      chunks: 'all', // 对所有的模块进行拆分
+    }
   },
   output: {
     // publicPath: 'http://cdn.gugouo.com', // 在html中引入CDN的地址

@@ -1,13 +1,14 @@
 {
   "name": "immature-webpack",
-  "sideEffects": false, 
+  "sideEffects": false,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",
-    "start": "webpack-dev-server --inline --hot --port 3000", 
+    "start": "webpack-dev-server --inline --hot --port 3000",
     "bundle": "webpack",
+    "w-dev": "webpack --config webpack.dev.js",
     "dev": "webpack-dev-server --config webpack.dev.js",
     "prod": "webpack-dev-server --config webpack.prod.js"
   },
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "css-loader": "^2.0.0",
+    "loadsh": "0.0.4",
     "node-sass": "^4.10.0",
     "style-loader": "^0.23.1"
   }

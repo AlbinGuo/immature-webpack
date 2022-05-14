@@ -35,5 +35,22 @@
 //   })
 // }
 
-import {add} from './tree-shaking/math'
-add(1,5)
+// import {add} from './tree-shaking/math'
+// add(1,5)
+
+// 同步代码分割
+// import _ from 'loadsh'
+// console.log(_.join(['a', 'b', 'c'], '~'))
+
+// 异步代码分割
+function getComponent() {
+  return import('loadsh').then(({default: _}) => {
+    var element = document.createElement('div')
+    element.innerHTML = _.join(['aa', 'bb', 'cc'], '~')
+    return element
+  })
+}
+
+getComponent().then(element => {
+  document.body.appendChild(element)
+})
