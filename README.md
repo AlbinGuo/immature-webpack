@@ -2,7 +2,31 @@ https://webpack.js.org
 
 ### 环境变量的使用
 
+- package.json
+
+```javascript
+...
+script: {
+  "prod": "webpack-dev-server --env.production --config webpack.prod.js"
+}
+...
+```
+
+- webpack.common.js
+
+```javascript
+module.exports = (env) => {
+  if (env && env.production) {
+    return merge(commonConfig, prodConfig)
+  } else {
+    return merge(commonConfig, devConfig)
+  }
+}
+```
+
 ### Shimming
+
+> 1. 解决低版本浏览器兼容性问题等
 
 ### Webpack 与浏览器缓存
 

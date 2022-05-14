@@ -1,4 +1,6 @@
-module.exports = {
+const devConfig =  require('./webpack.dev.js');
+const prodConfig = require('./webpack.prod.js');
+const commonConfig = {
   entry: {
     main: './src/index.js',  // 入口文件,output不指定文件名，默认输出main.js
     // sub: './src/index.js' // ./src/sub.js
@@ -60,4 +62,12 @@ module.exports = {
     new CleanWebpackPlugin(), // 打包前先清空dist目录
     new webpack.HotModuleReplacementPlugin(), // 热更新
   ],
+}
+
+module.exports = (env) => {
+  if(env && env.production) {
+    return merge(commonConfig, prodConfig);
+  }else{
+    return merge(commonConfig, devConfig);
+  }
 }
