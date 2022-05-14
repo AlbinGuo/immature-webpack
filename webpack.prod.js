@@ -5,23 +5,11 @@ const path = require('path')
 // plugin可以在webpack运行到某个时刻的时候，帮我们做一些事情，类似生命周期函数
 
 module.exports = {
-  mode: 'development',    // 不压缩代码：development、压缩代码：production
-  devtool: 'cheap-moudle-eval-source-map', // 1.none关闭sourceMap; 2.开发环境下，配置source-map，方便调试
+  mode: 'developroductionpment',    // 不压缩代码：development、压缩代码：production
+  devtool: 'cheap-moudle-source-map', // 1.none关闭sourceMap; 2.开发环境下，配置source-map，方便调试
   entry: {
     main: './src/index.js',  // 入口文件,output不指定文件名，默认输出main.js
     // sub: './src/index.js' // ./src/sub.js
-  },
-  devServer: {    // 执行webpack-dev-server
-    contentBase: './dist', // 告诉服务器从哪里提供内容，只有在想要提供静态文件时才需要
-    open: true, // 自动打开浏览器
-    hot: true, // 热更新 HMR
-    hotOnly: true, // 即使HMR不生效，也不跳转，不需要重新刷新页面
-    // port: 3000 // 设置端口
-    // proxy: {
-    //   '/api': {
-    //     target: 'http://localhost:3000',
-    //   }
-    // }
   },
   module: {
     rules: [{
@@ -78,11 +66,7 @@ module.exports = {
       inject: true, // 是否将js放入head中 , 或者直接写 inject: 'head'
     }),
     new CleanWebpackPlugin(), // 打包前先清空dist目录
-    new webpack.HotModuleReplacementPlugin(), // 热更新
   ],
-  optimization: {
-    usedExports: true, // 开启tree-shaking : 对没有被使用的模块进行删除【development模式下】
-  },
   output: {
     // publicPath: 'http://cdn.gugouo.com', // 在html中引入CDN的地址
     filename: '[name].js', // 'bundle.js', // 打包后的文件名

@@ -1,13 +1,15 @@
 {
   "name": "immature-webpack",
-  "sideEffects": false, // tree-shaking时忽略polyfill ['*.css','polyfill', 'corejs', 'regenerator-runtime']
+  "sideEffects": false, 
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",
     "start": "webpack-dev-server --inline --hot --port 3000", 
-    "bundle": "webpack"
+    "bundle": "webpack",
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "prod": "webpack-dev-server --config webpack.prod.js"
   },
   "keywords": [],
   "author": "guonan",

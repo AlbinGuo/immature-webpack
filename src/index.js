@@ -36,4 +36,4 @@
 // }
 
 import {add} from './tree-shaking/math'
-add(1,2)
+add(1,5)
