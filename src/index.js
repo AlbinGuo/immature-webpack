@@ -9,4 +9,4 @@
 // // root.append(img);
 // root.innerHTML = '<div class="iconfont icon-shoucang1"></div>'
 
-console.log('hello 111')
+console.log('hello -------------')

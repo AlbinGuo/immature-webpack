@@ -10,6 +10,16 @@ module.exports = {
     main: './src/index.js',  // 入口文件,output不指定文件名，默认输出main.js
     // sub: './src/index.js' // ./src/sub.js
   },
+  devServer: {    // 执行webpack-dev-server
+    contentBase: './dist', // 告诉服务器从哪里提供内容，只有在想要提供静态文件时才需要
+    open: true, // 自动打开浏览器
+    // port: 3000 // 设置端口
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://localhost:3000',
+    //   }
+    // }
+  },
   module: {
     rules: [{
       test: /\.(png|jpg|gif)$/, // 打包的文件是以png结尾的
