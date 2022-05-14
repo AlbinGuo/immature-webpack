@@ -1,18 +1,30 @@
 https://webpack.js.org
 
+### webpack-merge
+
+```javascript
+webpack.common.js
+合并
+webpack.dev.js
+webpack.prod.js
+```
+
 ### Tree-shaking
 
-- development模式
+- development 模式
+
 ```JavaScript
 ...
  mode: 'development',
- devtool: 'cheap-moudle-eval-source-map', 
+ devtool: 'cheap-moudle-eval-source-map',
 optimization: {
     usedExports: true, // 开启tree-shaking : 对没有被使用的模块进行删除【development模式下】
   }
   ...
 ```
-- production模式
+
+- production 模式
+
 ```JavaScript
 ...
  mode: 'production',
