@@ -1,5 +1,6 @@
 {
   "name": "immature-webpack",
+  "sideEffects": false, // tree-shaking时忽略polyfill ['*.css','polyfill', 'corejs', 'regenerator-runtime']
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

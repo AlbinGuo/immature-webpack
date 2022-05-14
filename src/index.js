@@ -21,16 +21,19 @@
 //   document.body.appendChild(div)
 // }
 
-import counter from './hmr/counter'
-import number from './hmr/number'
+// import counter from './hmr/counter'
+// import number from './hmr/number'
 
-counter()
-number()
+// counter()
+// number()
 
-if(module.hot) {
-  module.hot.accept('./hmr/number', () => {
-    const num = document.getElementById('number')
-    document.body.removeChild(num)
-    number()
-  })
-}
+// if(module.hot) {
+//   module.hot.accept('./hmr/number', () => {
+//     const num = document.getElementById('number')
+//     document.body.removeChild(num)
+//     number()
+//   })
+// }
+
+import {add} from './tree-shaking/math'
+add(1,2)

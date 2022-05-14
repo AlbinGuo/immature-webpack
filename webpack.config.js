@@ -80,6 +80,9 @@ module.exports = {
     new CleanWebpackPlugin(), // 打包前先清空dist目录
     new webpack.HotModuleReplacementPlugin(), // 热更新
   ],
+  optimization: {
+    usedExports: true, // 开启tree-shaking : 对没有被使用的模块进行删除【development模式下】
+  },
   output: {
     // publicPath: 'http://cdn.gugouo.com', // 在html中引入CDN的地址
     filename: '[name].js', // 'bundle.js', // 打包后的文件名

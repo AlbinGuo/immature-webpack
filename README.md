@@ -1,5 +1,26 @@
 https://webpack.js.org
 
+### Tree-shaking
+
+- development模式
+```JavaScript
+...
+ mode: 'development',
+ devtool: 'cheap-moudle-eval-source-map', 
+optimization: {
+    usedExports: true, // 开启tree-shaking : 对没有被使用的模块进行删除【development模式下】
+  }
+  ...
+```
+- production模式
+```JavaScript
+...
+ mode: 'production',
+ devtool: 'cheap-moudle-source-map'
+ // 不需要配置optimization
+  ...
+```
+
 ### \* Hot Moudle Replacement [HMR]
 
 ```javascript
