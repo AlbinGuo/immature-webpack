@@ -50,7 +50,9 @@ module.exports = {
   },
   plugins:[
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/index.html', // 指定打包html文件参照的模板
+      filename: 'index.html', // 生成的html文件名
+      inject: true, // 是否将js放入head中 , 或者直接写 inject: 'head'
     })
   ],
   output: {
