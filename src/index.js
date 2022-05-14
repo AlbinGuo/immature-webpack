@@ -9,14 +9,29 @@
 // // root.append(img);
 // root.innerHTML = '<div class="iconfont icon-shoucang1"></div>'
 
-import './style.css'
+// import './style.css'
 
-const btn = document.createElement('button')
-btn.innerHTML = 'add item'
-document.body.appendChild(btn)
+// const btn = document.createElement('button')
+// btn.innerHTML = 'add item'
+// document.body.appendChild(btn)
 
-btn.onclick = () => {
-  const div = document.createElement('div')
-  div.innerHTML = 'item'
-  document.body.appendChild(div)
+// btn.onclick = () => {
+//   const div = document.createElement('div')
+//   div.innerHTML = 'item'
+//   document.body.appendChild(div)
+// }
+
+import counter from './hmr/counter'
+import number from './hmr/number'
+
+counter()
+number()
+console.log('----------amodule.hot', module.hot)
+if(module.hot) {
+  module.hot.accept('./hmr/number', () => {
+    const num = document.getElementById('number')
+    document.body.removeChild(num)
+    console.log('--------number----------')
+    number()
+  })
 }

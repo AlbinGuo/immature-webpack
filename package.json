@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --inline",
     "bundle": "webpack"
   },
   "keywords": [],

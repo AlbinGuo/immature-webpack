@@ -1,6 +1,6 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-// const HotMoudleReplacementPlugin = require('webpack-hot-module-replacement-plugin')
 const path = require('path')
 // plugin可以在webpack运行到某个时刻的时候，帮我们做一些事情，类似生命周期函数
 
@@ -15,7 +15,7 @@ module.exports = {
     contentBase: './dist', // 告诉服务器从哪里提供内容，只有在想要提供静态文件时才需要
     open: true, // 自动打开浏览器
     hot: true, // 热更新 HMR
-    hotOnly: true, // 即使HMR不生效，也不跳转
+    hotOnly: true, // 即使HMR不生效，也不跳转，不需要重新刷新页面
     // port: 3000 // 设置端口
     // proxy: {
     //   '/api': {
