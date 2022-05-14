@@ -2,23 +2,36 @@ https://webpack.js.org
 
 ### 环境变量的使用
 
-
 ### Shimming
 
+### Webpack 与浏览器缓存
 
-
-### Webpack与浏览器缓存
-
-
-### css文件的代码分割
-
+### css 文件的代码分割
 
 ### 打包分析，preLoading, preFetching
 
+```javascript
+···
+splitChunks: {
+  splitChunks: {
+    chunks: 'async'
+  }
+}
+···
+```
 
-### Lazy Loading懒加载
+- 魔法注释【带宽空闲时会偷偷的加载<font style='color:red;'>魔法注释</font>的代码】
 
+```javascript
+/*webpackPrefetch: true*/
+document.addEventListener('click', () => {
+  import(/*webpackPrefetch: true*/'./click.js').then((default: func) => {
+    func()
+  })
+})
+```
 
+### Lazy Loading 懒加载
 
 ### splitChunksPlugin
 

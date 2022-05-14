@@ -83,7 +83,7 @@ module.exports = {
   optimization: {
     usedExports: true, // 开启tree-shaking : 对没有被使用的模块进行删除【development模式下】
     splitChunks: {
-      chunks: 'all', // 对所有的模块进行拆分
+      chunks: 'all', // 对所有的模块进行拆分 - async:异步加载
       minSize: 30000, // 模块大于30k就拆分
       maxSize: 0, // 模块大于0k就拆分
       minChunks: 1, // 当文件被引用1次时，进行拆分
