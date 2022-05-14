@@ -1,4 +1,38 @@
+https://webpack.js.org
+
+### \* Hot Moudle Replacement [HMR]
+
+```javascript
+...
+devServer: {
+  hot: true, // 热更新 HMR
+  hotOnly: true, // 即使HMR不生效，也不跳转
+}
+...
+
+...
+plugins:[
+  new webpack.HotModuleReplacementPlugin(), // 热更新
+]
+...
+```
+
 ### \* WebpackDevServer
+
+```JavaScript
+devServer: {    // 执行webpack-dev-server
+    contentBase: './dist', // 告诉服务器从哪里提供内容，只有在想要提供静态文件时才需要
+    open: true, // 自动打开浏览器
+    hot: true, // 热更新 HMR
+    hotOnly: true, // 即使HMR不生效，也不跳转
+    // port: 3000 // 设置端口
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://localhost:3000',
+    //   }
+    // }
+  },
+```
 
 ### \* source-map
 

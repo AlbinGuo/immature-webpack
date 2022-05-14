@@ -9,4 +9,14 @@
 // // root.append(img);
 // root.innerHTML = '<div class="iconfont icon-shoucang1"></div>'
 
-console.log('hello -------------')
+import './style.css'
+
+const btn = document.createElement('button')
+btn.innerHTML = 'add item'
+document.body.appendChild(btn)
+
+btn.onclick = () => {
+  const div = document.createElement('div')
+  div.innerHTML = 'item'
+  document.body.appendChild(div)
+}

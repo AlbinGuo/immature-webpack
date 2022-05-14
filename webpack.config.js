@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin }  =require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+// const HotMoudleReplacementPlugin = require('webpack-hot-module-replacement-plugin')
 const path = require('path')
 // plugin可以在webpack运行到某个时刻的时候，帮我们做一些事情，类似生命周期函数
 
@@ -13,6 +14,8 @@ module.exports = {
   devServer: {    // 执行webpack-dev-server
     contentBase: './dist', // 告诉服务器从哪里提供内容，只有在想要提供静态文件时才需要
     open: true, // 自动打开浏览器
+    hot: true, // 热更新 HMR
+    hotOnly: true, // 即使HMR不生效，也不跳转
     // port: 3000 // 设置端口
     // proxy: {
     //   '/api': {
@@ -58,6 +61,14 @@ module.exports = {
         'sass-loader',           // sass-loader [ 对scss文件进行编译 ]
         'postcss-loader'        // 自动添加厂商前缀 -webkit- -moz- -o- -ms- -ie- [ npm i autoprefixer ]
       ]
+    },
+    {
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        'postcss-loader'
+      ]
     }]
   },
   plugins:[
@@ -66,7 +77,8 @@ module.exports = {
       filename: 'index.html', // 生成的html文件名
       inject: true, // 是否将js放入head中 , 或者直接写 inject: 'head'
     }),
-    new CleanWebpackPlugin() // 打包前先清空dist目录
+    new CleanWebpackPlugin(), // 打包前先清空dist目录
+    new webpack.HotModuleReplacementPlugin(), // 热更新
   ],
   output: {
     // publicPath: 'http://cdn.gugouo.com', // 在html中引入CDN的地址
