@@ -1,7 +1,15 @@
 ### 2022/05/14 \* Plugin
 
 - html-webpack-plugin
-  > html-webpack-plugin 插件会在打包结束后，自动生成一个 html 文件，并把打包生成的 js 自动引入到这个 html 文件中
+  > html-webpack-plugin 插件会在<font color="red">打包结束后</font>，自动生成一个 html 文件，并把打包生成的 js 自动引入到这个 html 文件中
+
+```npm
+npm install html-webpack-plugin@4.0.0 -D
+```
+
+- clean-webpack-plugin
+  > clean-webpack-plugin 插件会在<font color="red">打包之前</font>删除 dist 目录下的所有内容
+  > `new CleanWebpackPlugin(['dist'])`
 
 ```npm
 npm install html-webpack-plugin@4.0.0 -D

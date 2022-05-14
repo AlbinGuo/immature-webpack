@@ -1,5 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin }  =require('clean-webpack-plugin')
 const path = require('path')
+// plugin可以在webpack运行到某个时刻的时候，帮我们做一些事情，类似生命周期函数
 
 module.exports = {
   mode: 'development',    // 不压缩代码：development、压缩代码：production
@@ -51,7 +53,8 @@ module.exports = {
       template: './src/index.html', // 指定打包html文件参照的模板
       filename: 'index.html', // 生成的html文件名
       inject: true, // 是否将js放入head中 , 或者直接写 inject: 'head'
-    })
+    }),
+    new CleanWebpackPlugin() // 打包前先清空dist目录
   ],
   output: {
     filename: 'bundle.js', // 打包后的文件名
