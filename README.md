@@ -1,3 +1,19 @@
+### entry 与 output 配置
+
+```javascript
+...
+entry: {
+    main: './src/index.js',
+    sub: './src/sub.js'
+  },
+
+output: {
+  filename: '[name].js', // '[hash].js', // 打包后的文件名
+  path: path.resolve(__dirname, 'dist') // 打包后的路径：__dirname代表根目录
+}
+...
+```
+
 ### 2022/05/14 \* Plugin
 
 - html-webpack-plugin

@@ -6,7 +6,8 @@ const path = require('path')
 module.exports = {
   mode: 'development',    // 不压缩代码：development、压缩代码：production
   entry: {
-    main: './src/index.js'  // 入口文件
+    main: './src/index.js',  // 入口文件,output不指定文件名，默认输出main.js
+    sub: './src/index.js' // ./src/sub.js
   },
   module: {
     rules: [{
@@ -57,7 +58,7 @@ module.exports = {
     new CleanWebpackPlugin() // 打包前先清空dist目录
   ],
   output: {
-    filename: 'bundle.js', // 打包后的文件名
+    filename: '[name].js', // 'bundle.js', // 打包后的文件名
     path: path.resolve(__dirname, 'dist') // 打包后的路径：__dirname代表根目录
   }
 
