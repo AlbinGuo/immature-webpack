@@ -1,5 +1,9 @@
 https://webpack.js.org
 
+### Loader
+
+- [Loader](./LOADER.md)
+
 ### Webpack 多页面打包
 
 ### Webpack 性能优化
